@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nombres décimaux – Exercice de Sid KHALIFA</title>
+<style>
+:root{--navy:#0b2559;--navy2:#17377f;--bg:#f5f8fd;--card:#fff;--line:#d5deef;--ok:#16794a;--okbg:#e3f6ea;--ko:#b3261e;--kobg:#fde8e7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#13244d;font:16px/1.55 Georgia,"Times New Roman",serif}
+header{background:var(--navy);color:#fff;padding:22px 16px;border-bottom:6px solid #5b8def}
+.hd{max-width:900px;margin:auto;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.hd img{height:auto;width:auto;max-width:100%;border-radius:8px;display:block}
+.hd h1{margin:0;font-size:1.6rem;line-height:1.2}
+.hd p{margin:.3rem 0 0;color:#c9d7f5;font-family:Verdana,sans-serif;font-size:.95rem}
+main{max-width:900px;margin:auto;padding:18px 14px 90px}
+h2.fiche{background:var(--navy2);color:#fff;padding:10px 16px;border-radius:8px;margin:34px 0 10px;font-size:1.2rem}
+.ex{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--navy2);border-radius:8px;padding:12px 18px 14px;margin:14px 0}
+.ex h3{margin:0 0 4px;color:var(--navy);font-size:1.05rem}
+.hint{margin:0 0 8px;color:#5a6b92;font-size:.88rem;font-style:italic}
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px 18px}
+.q{padding:6px 0;border-bottom:1px dashed var(--line)}
+.q b.l{color:var(--navy2);margin-right:6px;font-family:Verdana,sans-serif}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;font-size:.95em;line-height:1.15}
+.fr i{font-style:normal;border-bottom:1.5px solid currentColor;padding:0 4px}
+input,select{font:inherit;color:var(--navy);border:2px solid #9fb2d9;border-radius:6px;padding:3px 6px;width:96px;background:#fff;margin:2px 3px}
+input.w{width:210px}
+input:focus,select:focus,button:focus-visible{outline:3px solid #8fb0ff;outline-offset:1px}
+select{width:auto}
+.ok{border-color:var(--ok)!important;background:var(--okbg)!important;color:var(--ok)!important;font-weight:bold}
+.ko{border-color:var(--ko)!important;background:var(--kobg)!important;color:var(--ko)!important;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cell{font:inherit;padding:12px 6px;border:2px solid #9fb2d9;border-radius:8px;background:#fff;color:var(--navy);cursor:pointer;min-height:56px}
+.cell.on{background:#2f5fd0;color:#fff;border-color:var(--navy)}
+.cell.miss{outline:3px dashed var(--ko)}
+.bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid var(--navy);padding:9px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;z-index:5}
+button.b{font:bold .95rem Verdana,sans-serif;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:10px 16px;cursor:pointer}
+button.b.s{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+button.b:hover{background:var(--navy2);color:#fff}
+#sc{display:none;background:var(--navy);color:#fff;text-align:center;border-radius:8px;padding:12px;margin:18px 0;font:bold 1.15rem Verdana,sans-serif}
+#cor{display:none;margin-top:30px;border-top:4px solid var(--navy);padding-top:6px}
+#cor .m{background:#eaf0fc;border-radius:6px;padding:8px 12px;margin:6px 0}
+#cor li{margin:6px 0}#cor ul{padding-left:20px}
+#cor .r{color:var(--ok);font-weight:bold}
+footer{text-align:center;color:#5a6b92;font:.85rem Verdana,sans-serif;padding:10px}
+@media(max-width:600px){.hd h1{font-size:1.25rem}.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="hd">
+<img src="data:image/jpeg;base64,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" alt="Logo Fransid" width="245" height="98">
+<div><h1>Les nombres décimaux – Fiches 2 et 3</h1><p>Un exercice de Sid KHALIFA · Niveau N3 · Nombres et calculs</p></div>
+</div></header>
+<main>
+<p>Réponds dans chaque case (virgule ou point acceptés), puis clique sur <b>Vérifier mes réponses</b>. Vert = correct, rouge = faux. Le corrigé détaillé est en bas de page.</p>
+<div id="ex"></div>
+<div id="sc"></div>
+<div id="cor"></div>
+</main>
+<footer>Exercice de Sid KHALIFA – d'après les fiches « Nombres décimaux • N3 »</footer>
+<div class="bar">
+<button class="b" onclick="checkAll()">✔ Vérifier mes réponses</button>
+<button class="b s" onclick="render()">↺ Recommencer</button>
+<button class="b s" onclick="showCor()">📖 Corrigé avec explication détaillée</button>
+<button class="b s" onclick="dl()">⬇ Télécharger</button>
+</div>
+<script>
+const FT={2:"Fiche 2 : utiliser différentes écritures d'un nombre décimal",3:"Fiche 3 : connaître l'écriture décimale"};
+const PL=["unités","dizaines","centaines","dixièmes","centièmes","millièmes"];
+const X=(f,t,m,q,o)=>Object.assign({f,t,m,q},o||{});
+const S=[
+X(2,"Exercice 1 : Donne l'écriture décimale.","Chaque fraction décimale occupe une colonne : {1|10} = dixièmes (1er chiffre après la virgule), {1|100} = centièmes (2e), {1|1 000} = millièmes (3e). Une colonne vide se remplit avec 0.",[
+["17 + {6|10} = §","17.6","n","{6|10} = 0,6 donc 17 + 0,6 = 17,6."],
+["45 + {6|100} = §","45.06","n","{6|100} = 0,06 : le 6 est en 2e position après la virgule, les dixièmes valent 0. Donc 45,06."],
+["3 + {5|10} + {2|100} = §","3.52","n","5 dixièmes et 2 centièmes : 3 + 0,5 + 0,02 = 3,52."],
+["6 + {7|10} + {8|100} + {9|1 000} = §","6.789","n","7 dixièmes, 8 centièmes, 9 millièmes : 6,789."]]),
+X(2,"Exercice 2 : Décompose comme dans l'exemple 7,36 = 7 + {3|10} + {6|100}.","On lit chaque chiffre avec sa colonne : partie entière, puis un chiffre = une fraction décimale (dixièmes sur 10, centièmes sur 100, millièmes sur 1 000).",[
+["3,79 = §","3.79|2","e","3 unités, 7 dixièmes, 9 centièmes : 3 + {7|10} + {9|100}."],
+["5,325 = §","5.325|3","e","5 unités, 3 dixièmes, 2 centièmes, 5 millièmes : 5 + {3|10} + {2|100} + {5|1 000}."],
+["65,32 = §","65.32|2","e","65 unités, 3 dixièmes, 2 centièmes : 65 + {3|10} + {2|100}."]]),
+X(2,"Exercice 3 : Donne l'écriture décimale.","On convertit chaque fraction : le numérateur est écrit avec autant de chiffres après la virgule que de zéros au dénominateur (1 zéro → 1 décimale, etc.), en complétant par des 0.",[
+["3 + {1|10} = §","3.1","n","{1|10} = 0,1 donc 3,1."],
+["72 + {71|100} = §","72.71","n","{71|100} = 0,71 (deux décimales) donc 72,71."],
+["{2|100} = §","0.02","n","2 centièmes = 0,02 : deux chiffres après la virgule, donc un 0 devant le 2."],
+["1 + {2|1 000} = §","1.002","n","2 millièmes = 0,002 donc 1,002."],
+["61 + {7|100} = §","61.07","n","7 centièmes = 0,07 donc 61,07."],
+["4 + {56|1 000} = §","4.056","n","56 millièmes = 0,056 (trois décimales) donc 4,056."]]),
+X(2,"Exercice 4 : Écris chaque nombre comme somme de sa partie entière et d'une seule fraction décimale.","Partie entière = ce qui est avant la virgule. Partie décimale = les chiffres après la virgule, placés sur 10, 100 ou 1 000 selon leur nombre.",[
+["6,3 = § + {§|§}","6;3;10","nnn","Partie entière 6 ; une décimale : 6 + {3|10}."],
+["31,76 = § + {§|§}","31;76;100","nnn","Partie entière 31 ; deux décimales : 31 + {76|100}."],
+["9,072 = § + {§|§}","9;72;1000","nnn","Partie entière 9 ; trois décimales « 072 » = 72 millièmes : 9 + {72|1 000}."],
+["4,006 = § + {§|§}","4;6;1000","nnn","Partie entière 4 ; 006 = 6 millièmes : 4 + {6|1 000}."],
+["50,08 = § + {§|§}","50;8;100","nnn","Partie entière 50 ; 08 = 8 centièmes : 50 + {8|100}."],
+["0,087 = § + {§|§}","0;87;1000","nnn","Partie entière 0 ; 087 = 87 millièmes : 0 + {87|1 000}."]]),
+X(2,"Exercice 5 : Donne l'écriture décimale.","Diviser par 10, 100 ou 1 000 revient à décaler la virgule de 1, 2 ou 3 rangs vers la gauche (en ajoutant des zéros si besoin).",[
+["{65|10} = §","6.5","n","65 ÷ 10 : la virgule recule d'un rang → 6,5."],
+["{485|1 000} = §","0.485","n","485 ÷ 1 000 : trois rangs → 0,485."],
+["{1 328|100} = §","13.28","n","1 328 ÷ 100 : deux rangs → 13,28."],
+["{9 007|1 000} = §","9.007","n","9 007 ÷ 1 000 : trois rangs → 9,007."],
+["{33|100} = §","0.33","n","33 ÷ 100 → 0,33."],
+["{76 201|1 000} = §","76.201","n","76 201 ÷ 1 000 → 76,201."]]),
+X(2,"Exercice 6 : Écris sous la forme d'une fraction décimale.","Le numérateur est le nombre sans la virgule ; le dénominateur est 10, 100 ou 1 000 selon le nombre de décimales. Écris la fraction sous la forme a/b (ex. 7/10).",[
+["0,3 = §","0.3","f","1 décimale → dénominateur 10 : {3|10}."],
+["0,27 = §","0.27","f","2 décimales → dénominateur 100 : {27|100}."],
+["4,2 = §","4.2","f","1 décimale : 42 dixièmes = {42|10}."],
+["1,02 = §","1.02","f","2 décimales : 102 centièmes = {102|100}."],
+["5,035 = §","5.035","f","3 décimales : 5 035 millièmes = {5 035|1 000}."],
+["7,607 = §","7.607","f","3 décimales : 7 607 millièmes = {7 607|1 000}."]]),
+X(2,"Exercice 7 : Décompose chaque nombre de trois façons différentes avec des fractions décimales.","Plusieurs réponses sont possibles : tout nombre peut s'écrire avec une seule fraction ({2 473|100}), ou en séparant les chiffres un à un. Écris par ex. 7 + 3/10 + 6/100 (au moins une fraction).",[
+["24,73 = § = § = §","24.73|1;24.73|1;24.73|1","eee","Par exemple : 24 + {73|100} ; 24 + {7|10} + {3|100} ; {2 473|100}."],
+["8,532 = § = § = §","8.532|1;8.532|1;8.532|1","eee","Par exemple : 8 + {532|1 000} ; 8 + {5|10} + {32|1 000} ; 8 + {5|10} + {3|100} + {2|1 000}."],
+["9,617 = § = § = §","9.617|1;9.617|1;9.617|1","eee","Par exemple : 9 + {617|1 000} ; 9 + {6|10} + {17|1 000} ; {9 617|1 000}."]]),
+X(2,"Exercice 8 : Colorie en bleu les écritures égales à 123,45 (clique sur les cases).","Calcule la valeur décimale de chaque case et garde celles qui valent 123,45.",[],{g:["12 + {345|1 000}","{12 345|10 000}","{1 234|10} + {5|1 000}","1 + {2 345|100}","{1 234|1 000} + {5|100}","123 + {4|10} + {5|100}","123 + 0,45","{1 234|10} + 5","123 + {45|100}"],c:[5,6,8],
+ge:["12,345 ✗","12 345 ÷ 10 000 = 1,2345 ✗","123,4 + 0,005 = 123,405 ✗","1 + 23,45 = 24,45 ✗","1,234 + 0,05 = 1,284 ✗","123 + 0,4 + 0,05 = 123,45 ✔","123 + 0,45 = 123,45 ✔","123,4 + 5 = 128,4 ✗","123 + 0,45 = 123,45 ✔"]}),
+X(3,"Exercice 1 : Récris en enlevant les zéros inutiles s'il y en a.","Un zéro est inutile s'il est à gauche de la partie entière, ou à la fin de la partie décimale. Les autres zéros doivent rester.",[
+["30,05 → §","30.05","s","Les zéros de 30 et de 05 sont utiles : 30,05."],
+["30,50 → §","30.5","s","Le 0 final après la virgule est inutile : 30,5."],
+["007 → §","7","s","Les zéros à gauche sont inutiles : 7."],
+["5,0 → §","5","s","Le 0 décimal est inutile, la virgule aussi : 5."],
+["27,06 → §","27.06","s","Le 0 entre la virgule et le 6 est utile : 27,06."],
+["04,001 → §","4.001","s","On enlève le 0 de gauche seulement : 4,001."],
+["654,30 → §","654.3","s","Le 0 final est inutile : 654,3."],
+["04,6020 → §","4.602","s","On enlève le 0 de gauche et le 0 final : 4,602."]]),
+X(3,"Exercice 2 : Complète par = ou ≠.","Ajouter des zéros à la fin de la partie décimale ne change pas la valeur. Déplacer la virgule la change.",[
+["15 § 15,0","=","m","15,0 = 15 (zéro final inutile)."],
+["0,007 § 0,07","≠","m","0,007 = 7 millièmes, 0,07 = 7 centièmes : valeurs différentes."],
+["204 § 20,4","≠","m","La virgule n'est pas au même endroit : 204 ≠ 20,4."],
+["93,7 § 93,70","=","m","93,70 = 93,7 (zéro final inutile)."]]),
+X(3,"Exercice 3 : Récris les nombres avec autant de décimales que 4,157.","4,157 a 3 décimales : on complète par des zéros à la fin de la partie décimale (la valeur ne change pas).",[
+["0,4 = §","0.400","s","0,4 → 0,400 (on ajoute deux zéros)."],
+["4 = §","4.000","s","4 → 4,000 (on ajoute la virgule et trois zéros)."],
+["4,16 = §","4.160","s","4,16 → 4,160 (un zéro)."],
+["145 = §","145.000","s","145 → 145,000."]]),
+X(3,"Exercice 4 : Dans le nombre 124 738,59… (utilise la liste).","Avant la virgule : unités, dizaines, centaines… Après la virgule : dixièmes, centièmes, millièmes… Dans 124 738,59 : 8 unités, 3 dizaines, 7 centaines ; 5 dixièmes, 9 centièmes.",[
+["9 est le chiffre des §","centièmes","p","Le 9 est le 2e chiffre après la virgule : centièmes."],
+["7 est le chiffre des §","centaines","p","738 : 7 centaines, 3 dizaines, 8 unités."],
+["5 est le chiffre des §","dixièmes","p","Le 5 est juste après la virgule : dixièmes."],
+["3 est le chiffre des §","dizaines","p","Dans 738, le 3 est au milieu : dizaines."]]),
+X(3,"Exercice 5 : Dans le nombre 84,735…","Place chaque chiffre : 8 dizaines, 4 unités, 7 dixièmes, 3 centièmes, 5 millièmes. Une colonne absente vaut 0.",[
+["le chiffre des dixièmes est : §","7","n","Premier chiffre après la virgule : 7."],
+["le chiffre des unités est : §","4","n","Dernier chiffre avant la virgule : 4."],
+["le chiffre des millièmes est : §","5","n","Troisième chiffre après la virgule : 5."],
+["le chiffre des centaines est : §","0","n","84 n'a pas de chiffre des centaines : on écrit 0."]]),
+X(3,"Exercice 6 : Dans le nombre 4 091,807… (utilise la liste).","Le nombre de dizaines, centaines… (ou de dixièmes…) est la partie entière obtenue en coupant le nombre à cette colonne.",[
+["409 est le nombre de §","dizaines","p","4 091 = 409 dizaines + 1 unité."],
+["4 091 807 est le nombre de §","millièmes","p","4 091,807 = 4 091 807 millièmes (on décale la virgule de 3 rangs)."],
+["40 est le nombre de §","centaines","p","4 091 = 40 centaines + 91."],
+["40 918 est le nombre de §","dixièmes","p","4 091,8 = 40 918 dixièmes."]]),
+X(3,"Exercice 7 : Dans le nombre 738,59…","Nombre de … = on lit le nombre jusqu'à cette colonne, comme un nombre entier.",[
+["le nombre de dixièmes est : §","7385","n","738,5 → 7 385 dixièmes."],
+["le nombre de centaines est : §","7","n","7 centaines."],
+["le nombre de centièmes est : §","73859","n","738,59 → 73 859 centièmes."],
+["le nombre de millièmes est : §","738590","n","738,590 → 738 590 millièmes."]]),
+X(3,"Exercice 8 : Complète le tableau.","Chiffre des centièmes = 2e chiffre après la virgule (0 s'il n'existe pas). Nombre de centièmes = nombre lu jusqu'aux centièmes.",[
+["0,981 : chiffre des centièmes § ; nombre de centièmes §","8;98","nn","Chiffre : 8. 0,98 = 98 centièmes."],
+["152,36 : chiffre des centièmes § ; nombre de centièmes §","6;15236","nn","Chiffre : 6. 152,36 = 15 236 centièmes."],
+["789,4 : chiffre des centièmes § ; nombre de centièmes §","0;78940","nn","Pas de centièmes : 0. 789,40 = 78 940 centièmes."],
+["56,408 : chiffre des centièmes § ; nombre de centièmes §","0;5640","nn","Le chiffre après le 4 est 0. 56,40 = 5 640 centièmes."]]),
+X(3,"Exercice 9 : Dans 314159, place la virgule et/ou des zéros pour que…","La virgule se place juste à droite du chiffre des unités. Le chiffre qui suit est le chiffre des dixièmes.",[
+["4 soit le chiffre des unités : §","314.159","s","Virgule juste après le 4 : 314,159."],
+["5 soit le chiffre des dixièmes : §","3141.59","s","Le 5 doit suivre la virgule : 3 141,59."],
+["314 soit le nombre des millièmes : §","0.314159","s","314 millièmes = 0,314 : la virgule est précédée d'un 0, soit 0,314159."]]),
+X(3,"Exercice 10 : Donne l'écriture décimale des nombres.","Chaque morceau se place dans sa colonne (unités, dixièmes, centièmes, millièmes). Les colonnes absentes valent 0.",[
+["Quinze unités et trois dixièmes : §","15.3","n","15 + 0,3 = 15,3."],
+["Six-cent-six unités et douze centièmes : §","606.12","n","606 + 0,12 = 606,12."],
+["Neuf unités et deux centièmes : §","9.02","n","9 + 0,02 = 9,02 (0 aux dixièmes)."],
+["Quatre unités et onze millièmes : §","4.011","n","4 + 0,011 = 4,011."],
+["Trois centaines et un dixième : §","300.1","n","300 + 0,1 = 300,1."],
+["Douze dizaines et quinze millièmes : §","120.015","n","12 dizaines = 120 ; 15 millièmes = 0,015 → 120,015."]])
+];
+const H=s=>s.replace(/\{([^|}]+)\|([^}]+)\}/g,'<span class="fr"><i>$1</i><b>$2</b></span>');
+const nm=s=>(s||'').replace(/[\s\u00a0]/g,'').replace(',','.');
+function good(t,v,a){v=nm(v);if(!v)return false;
+if(t=='n')return /^\d+(\.\d+)?$/.test(v)&&Math.abs(+v-+nm(a))<1e-9;
+if(t=='s')return v===a;
+if(t=='f'){const m=v.match(/^(\d+)\/(10+)$/);return !!m&&Math.abs(m[1]/m[2]-+a)<1e-9}
+if(t=='e'){const[x,k]=a.split('|');if(!/^[\d.+\/()]+$/.test(v)||(v.match(/\//g)||[]).length<k)return false;try{return Math.abs(Function('return '+v)()-x)<1e-9}catch(e){return false}}
+return v===nm(a)}
+function mark(el){const g=good(el.dataset.t,el.value,el.dataset.a);el.classList.remove('ok','ko');el.classList.add(g?'ok':'ko');return g}
+function widget(t,a){if(t=='m'||t=='p'){const o=(t=='m'?['=','≠']:PL).map(x=>`<option>${x}</option>`).join('');return `<select data-t="${t}" data-a="${a}"><option value=""> ? </option>${o}</select>`}
+return `<input type="text" data-t="${t}" data-a="${a}" autocomplete="off"${t=='e'?' class="w"':''}>`}
+const disp=(t,a)=>a.split(';').map(x=>x.replace('.',',')).join(' ; ');
+function render(){const R=document.getElementById('ex'),C=document.getElementById('cor');let f=0,r='',c='<h2 class="fiche">📖 Corrigé détaillé</h2>';
+document.getElementById('sc').style.display='none';
+S.forEach(s=>{if(s.f!=f){f=s.f;r+=`<h2 class="fiche">${FT[f]}</h2>`;c+=`<h3>${FT[f]}</h3>`}
+const L=j=>String.fromCharCode(97+j);let hint='';
+r+=`<section class="ex"><h3>${H(s.t)}</h3>`;c+=`<h4>${H(s.t.replace(/\s*\(.*\)/,''))}</h4><div class="m"><b>Méthode :</b> ${H(s.m)}</div><ul>`;
+if(s.g){r+='<div class="grid">'+s.g.map((x,i)=>`<button class="cell" data-i="${i}">${H(x)}</button>`).join('')+'</div>';
+s.g.forEach((x,i)=>c+=`<li><b>${H(x)}</b> : ${H(s.ge[i])}</li>`);}
+else{if(/e/.test(s.q[0][2]))hint='Écris par exemple : 7 + 3/10 + 6/100 (utilise « / » pour les fractions).';
+if(hint)r+=`<p class="hint">${hint}</p>`;r+='<div class="qs">';
+s.q.forEach((q,j)=>{const a=q[1].split(';');let k=0;
+r+=`<div class="q"><b class="l">${L(j)}.</b>${H(q[0]).replace(/§/g,()=>{const i=k++;return widget(q[2][i],a[i])})}</div>`;
+c+=`<li><b>${L(j)}.</b> ${H(q[0].replace(/§/g,'…'))}${/[nsmp]/.test(q[2])?` → <span class="r">${disp(q[2],q[1])}</span>`:''}<br>${H(q[3])}</li>`});r+='</div>'}
+r+='</section>';c+='</ul>'});
+R.innerHTML=r;C.innerHTML=c;C.style.display='none'}
+function checkAll(){let t=0,p=0;
+S.forEach((s,si)=>{});
+document.querySelectorAll('.ex').forEach((sec,si)=>{const s=S.filter(x=>1)[[...document.querySelectorAll('.ex')].indexOf(sec)];
+if(s.g){t++;let all=true;sec.querySelectorAll('.cell').forEach((b,i)=>{const on=b.classList.contains('on'),want=s.c.includes(i);b.classList.remove('ok','ko','miss');if(on&&want)b.classList.add('ok');else if(on)b.classList.add('ko'),all=false;else if(want)b.classList.add('miss'),all=false});if(all)p++;return}
+sec.querySelectorAll('.q').forEach(q=>{t++;let all=true;q.querySelectorAll('[data-a]').forEach(e=>{if(!mark(e))all=false});if(all)p++})});
+const e=document.getElementById('sc');e.style.display='block';e.textContent=`Score : ${p} / ${t} questions réussies`+(p==t?' – Bravo ! 🎉':'');e.scrollIntoView({behavior:'smooth',block:'center'})}
+document.addEventListener('change',e=>{if(e.target.dataset&&e.target.dataset.a!==undefined)mark(e.target)});
+document.addEventListener('click',e=>{if(e.target.classList.contains('cell')){e.target.classList.toggle('on');e.target.classList.remove('ok','ko','miss')}});
+function showCor(){const c=document.getElementById('cor');c.style.display='block';c.scrollIntoView({behavior:'smooth'})}
+function dl(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+document.documentElement.outerHTML],{type:'text/html'}));a.download='exercice-nombres-decimaux-Sid-KHALIFA.html';a.click()}
+render();
+</script>
+</body>
+</html>
+ 
